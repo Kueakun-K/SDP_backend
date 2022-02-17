@@ -1,10 +1,14 @@
 const bcrypt = require('bcrypt')
-const {createUserService} = require("../services")
+const {createUserService, getUserService} = require("../services")
 
 module.exports = async function createUserController(req, res){
     const {userName, userLastname, userEmail, userPassword} = req.body
     if (!userName || !userLastname || !userEmail || !userPassword){
         return res.send({message: "กรุณากรอกข้อมูลให้ครบถ้วน"})
+    }
+    const checkEmail = await getUserService(userEmail)
+    if (checkEmail){
+        return res.send({message: "Email ซ้ำ"})
     }
     const passwordHash = bcrypt.hashSync(userPassword, 10)
     const data = {userName, userLastname, userEmail, userPassword:passwordHash}
