@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const {createUserService, getUserService} = require("../services")
 
 module.exports = async function createUserController(req, res){
