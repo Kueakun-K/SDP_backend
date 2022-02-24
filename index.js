@@ -15,6 +15,6 @@ mongoose.connect('mongodb+srv://t63010040:kritkuea4095@cluster0.jaj57.mongodb.ne
 app.use('/api', routes)
 
 
-app.listen(process.env.PORT || 1000,()=>{
+app.listen(5000,()=>{
     console.log('Started server')
 })
