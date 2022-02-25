@@ -17,6 +17,6 @@ module.exports = async function loginController(req, res){
         }
     }
     else{
-        return res.send({message: "Login fail"})
+        return res.send("Login Fail")
     }
 }
