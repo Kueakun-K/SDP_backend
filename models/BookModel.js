@@ -1,21 +1,17 @@
 const mongoose = require("mongoose")
 
 const BookSchema = mongoose.Schema({
-    bookName: String,
-    authorName: String,
-    Category: String,
-    Price: Number,
-    Rating:{
+    book_name: String,
+    book_tag: String,
+    book_description: String,
+    book_price: Number,
+    book_rate:{
         type: Number,
         default:0
     } , 
-    View:{
+    book_view:{
         type: Number,
         default:0
-    },
-    Date: {
-        type:Date,
-        default:Date.now
     }
 })
 
