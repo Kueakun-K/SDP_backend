@@ -5,6 +5,8 @@ const createBookController = require("./createBookController")
 const getAllBookController = require("./getAllBookController")
 const updateBookController = require("./updateBookController")
 const getBookController = require("./getBookController")
+const commentController = require("./commentController")
+const getCommentController = require("./getCommentController")
 
 module.exports = {
     createUserController,
@@ -13,5 +15,7 @@ module.exports = {
     createBookController,
     getAllBookController,
     updateBookController,
-    getBookController
+    getBookController,
+    commentController,
+    getCommentController
 }

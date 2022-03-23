@@ -4,6 +4,8 @@ const createBookService = require("./createBookService")
 const getBookService = require("./getBookService")
 const getAllBookService = require("./getAllBookService")
 const updateBookService = require("./updateBookService")
+const commentService = require("./commentService")
+const getCommentService = require("./getCommentService")
 
 module.exports = {
     createUserService,
@@ -11,5 +13,7 @@ module.exports = {
     createBookService,
     getBookService,
     getAllBookService,
-    updateBookService
+    updateBookService,
+    commentService,
+    getCommentService
 }
