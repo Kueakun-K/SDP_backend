@@ -1,6 +1,6 @@
 const {BookModel} = require("../models")
 
-module.exports = async function getBookService(name){
-    const Book = await BookModel.findOne({book_name: name})
+module.exports = async function getBookService(id){
+    const Book = await BookModel.findOne({_id: id})
     return Book
 }
