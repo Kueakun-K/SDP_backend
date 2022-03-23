@@ -5,7 +5,7 @@ module.exports = async function createBookController(req, res){
     if(!book_name || !book_tag || !book_description || !book_price){
         return res.send("กรอกให้ครบ")
     }
-    const checkbook = await getBookService(book_name)
+    const checkbook = await getBookService("bookname",book_name)
     if(checkbook){
         return res.send("หนังสือซ้ำ")
     }
