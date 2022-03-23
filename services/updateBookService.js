@@ -1,6 +1,6 @@
 const {BookModel} = require("../models")
 
-module.exports = async function updateBookService(name, data){
-    const book = await BookModel.findOneAndUpdate({book_name: name}, data);
+module.exports = async function updateBookService(id, data){
+    const book = await BookModel.findOneAndUpdate({_id: id}, data);
     return book;
 }
