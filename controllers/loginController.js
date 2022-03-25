@@ -10,7 +10,11 @@ module.exports = async function loginController(req, res){
     if(checkname){
         const compare = bcrypt.compareSync(user_password, checkname.user_password)
         if(compare){
-            return res.send(200)
+            var session
+            session = req.session
+            session.username = req.body.user_name
+            session.isLogin = true
+            return res.send(session.username)
         }
         else{
             return res.send("Login Fail")
