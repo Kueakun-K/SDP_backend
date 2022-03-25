@@ -2,13 +2,17 @@ const express = require('express')
 const session = require('express-session')
 const app = express()
 const routes = require('./routes')
+const path = require('path')
 const mongoose = require("mongoose")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
-const { cookie } = require('express/lib/response')
 const MongoDBStore = require('connect-mongodb-session')(session)
 
 app.set('trust proxy', 1);
+
+app.set('views', __dirname + '/views')
+
+const oneDay = 1000 * 60 * 60 * 24;
 
 app.use(session({
     secret: "sdp",
@@ -22,7 +26,8 @@ app.use(session({
     }),
     proxy: true,
     cookie: {
-        secure: true
+        secure: true,
+        maxAge: oneDay
     }
 }))
 
