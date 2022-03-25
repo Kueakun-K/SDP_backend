@@ -5,8 +5,10 @@ const routes = require('./routes')
 const mongoose = require("mongoose")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
+const { cookie } = require('express/lib/response')
 const MongoDBStore = require('connect-mongodb-session')(session)
 
+app.set('trust proxy', 1);
 
 app.use(session({
     secret: "sdp",
@@ -17,7 +19,11 @@ app.use(session({
         uri: 'mongodb+srv://t63010040:kritkuea4095@cluster0.jaj57.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
         databaseName: 'myFirstDatabase',
         collection: 'MySession'
-    })
+    }),
+    proxy: true,
+    cookie: {
+        secure: true
+    }
 }))
 
 app.use(cors())
